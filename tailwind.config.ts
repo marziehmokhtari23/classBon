@@ -1,10 +1,13 @@
 import type { Config } from "tailwindcss";
+import { colord, extend } from "colord";
+import mixPlugin from "colord/plugins/mix"
+extend([mixPlugin])
+const generateForegroundColorFrom = (input: string, percentage = 0.8): string =>
+  colord(input).mix(colord(input).isDark() ? 'white' : 'black', percentage).toHex();
 
-<<<<<<< Updated upstream
-=======
-const generateForegroundColorFrom=(input:string,percentage=0.8):string=>
-  colord(input).mix(colord(input).isDark() ?'white':'black',percentage).toHex();
-export  const tailwindColor:{[key:string]:string}={
+const generateDarkenColorFrom=(input:string,percentage=0.07):string=>
+  colord(input).darken(percentage).toHex();
+export const tailwindColor: { [key: string]: string } = {
   current: "currentColor",
   transparent: "transparent",
   white: "#F9F9F9",
@@ -38,7 +41,6 @@ export  const tailwindColor:{[key:string]:string}={
   "gradient-first": "#34eaa0",
   "gradient-second": "#0fa2e9"
 }
->>>>>>> Stashed changes
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -46,24 +48,15 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-<<<<<<< Updated upstream
+    colors: tailwindColor,
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-=======
-    colors:tailwindColor,
-    extend: {
-      container:{
-        center:true,
+      container: {
+        center: true,
       }
->>>>>>> Stashed changes
     },
 
   },
   plugins: [],
-  darkMode:"class",
+  darkMode: "class",
 };
 export default config;

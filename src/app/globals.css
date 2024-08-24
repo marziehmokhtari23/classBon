@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< Updated upstream
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -31,3 +32,11 @@ body {
     text-wrap: balance;
   }
 }
+=======
+html {
+    font-family: var("--font-yekanBakht");
+}
+:lang(en){
+    font-family: var("--font-figtree");
+}
+>>>>>>> Stashed changes

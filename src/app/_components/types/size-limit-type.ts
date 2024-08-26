@@ -1,0 +1,1 @@
+export type SizeLimit= "tiny" | "small" | "normal" | "large";

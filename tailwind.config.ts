@@ -52,6 +52,12 @@ const config: Config = {
     extend: {
       container: {
         center: true,
+      },
+      // background:{
+      //   "hero-pattern":"url('/images/content/tile.svg')"
+      // }
+      backgroundImage:{
+        "hero-pattern":"url('/images/content/tile.svg')"
       }
     },
 

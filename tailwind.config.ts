@@ -42,10 +42,9 @@ export const tailwindColor: { [key: string]: string } = {
   "gradient-second": "#0fa2e9"
 }
 const config: Config = {
-  content: [
-    "./src/pages/**/*.{tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  content: [  
+    "./src/app/**/*.{js,ts,jsx,tsx}",
+
   ],
   theme: {
     colors: tailwindColor,

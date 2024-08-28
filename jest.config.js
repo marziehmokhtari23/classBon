@@ -148,7 +148,7 @@ const config = {
 
   // The test environment that will be used for testing
   // testEnvironment: "jest-environment-node",
-testEnvironment:'node',
+testEnvironment:'jsdom',
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
 
@@ -177,8 +177,8 @@ testEnvironment:'node',
 
   // A map from regular expressions to paths to transformers
   transform: {  
-    '^.+\\.jsx?$': 'babel-jest', // For JavaScript files  
-    '^.+\\.tsx?$': 'ts-jest', // For TypeScript files  
+  '^.+\\.(ts|tsx)$': 'ts-jest',
+  "^.+\\.(js|jsx|ts|tsx)$": "babel-jest" 
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
@@ -186,7 +186,9 @@ testEnvironment:'node',
   //   "\\\\node_modules\\\\",
   //   "\\.pnp\\.[^\\\\]+$"
   // ],
-
+  transformIgnorePatterns: [
+    'node_modules', 'jest-test-results.json'
+  ],
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,
 

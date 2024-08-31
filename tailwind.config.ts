@@ -1,38 +1,67 @@
 import { colord ,extend} from "colord";
 import type { Config } from "tailwindcss";
 import mixPlugin from "colord/plugins/mix"
-extend ([mixPlugin])
-const generateDarkenColorFrom=(input:string,percentage=0.07):string=>
-colord(input).darken(percentage).toHex();
+extend([mixPlugin])
+const generateForegroundColorFrom = (input: string, percentage = 0.8): string =>
+  colord(input).mix(colord(input).isDark() ? 'white' : 'black', percentage).toHex();
 
-const generateForegroundColorFrom=(input:string,percentage=0.8):string=>
-  colord(input).mix(colord(input).isDark() ?'white':'black',percentage).toHex();
-export  const tailwindColor:{[key:string]:string}={
-white:"#F9F9F9",
-primary:"#007EBC",
-"primary-content":"#FFFFFF",
-"primary-focus":generateDarkenColorFrom("#007EBC"),
-neutral:"#2a323c",
-"neutral-focus":generateDarkenColorFrom("#2a323c"),
-secondry:"#6C5CE7",
-"secendry-focus":generateDarkenColorFrom("#6C5CE7"),
-"secondry-content":"#FFFFFF",
-accent:"#1FB2A5",
-"accent-focus":generateDarkenColorFrom("#1FB2A5"),
+const generateDarkenColorFrom=(input:string,percentage=0.07):string=>
+  colord(input).darken(percentage).toHex();
+export const tailwindColor: { [key: string]: string } = {
+  current: "currentColor",
+  transparent: "transparent",
+  white: "#F9F9F9",
+  primary: "#007BEC",
+  "primary-content": "#FFFFFF",
+  "primary-focus": generateDarkenColorFrom("#007BEC"),
+  secondary: "#6c5ce7",
+  "secondary-content": "#FFFFFF",
+  "secondary-focus": generateDarkenColorFrom("#6c5ce7"),
+  accent: "#1FB2A5",
+  "accent-content": "#FFFFFF",
+  "accent-focus": generateDarkenColorFrom("#1FB2A5"),
+  neutral: "#2a323c",
+  "neutral-content": generateForegroundColorFrom("#FFFFFF"),
+  "neutral-focus": generateDarkenColorFrom("#2a323c", 0.03),
+  "base-25": "#353d47",
+  "base-50": "#2a323c",
+  "base-75": "#20272e",
+  "base-100": "#1d232a",
+  "base-200": "#191e24",
+  "base-300": "#15191e",
+  "base-content": "#A6ADBB",
+  info: "#3abff8",
+  "info-content": generateForegroundColorFrom("#3abff8"),
+  success: "#36d399",
+  "success-content": generateForegroundColorFrom("#36d399"),
+  warning: "#fbbd23",
+  "warning-content": generateForegroundColorFrom("#fbbd23"),
+  error: "#f87272",
+  "error-content": generateForegroundColorFrom("#f87272"),
+  "gradient-first": "#34eaa0",
+  "gradient-second": "#0fa2e9"
 }
 const config: Config = {
-  content: [
-    "./src/pages/**/*.{tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  content: [  
+    "./src/app/**/*.{js,ts,jsx,tsx}",
+
   ],
   theme: {
-   
+    colors: tailwindColor,
     extend: {
-      colors:tailwindColor,
- 
+      container: {
+        center: true,
+      },
+      // background:{
+      //   "hero-pattern":"url('/images/content/tile.svg')"
+      // }
+      backgroundImage:{
+        "hero-pattern":"url('/images/content/tile.svg')"
+      }
     },
+
   },
   plugins: [],
+  darkMode: "class",
 };
 export default config;

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { title } from "node:process";
 import { FC } from "react";
+import {IconArrowLeftFill } from "@/app/_components/icons/icons";
 export type CourseCardProps = CourseSummery & {}
 export const CourseCard: FC<CourseCardProps> = ({ coverImageId, subTitle, level, basePrice, duration, slug, recordStatus }: CourseCardProps) => {
     return (
@@ -27,7 +28,9 @@ export const CourseCard: FC<CourseCardProps> = ({ coverImageId, subTitle, level,
 
             </div>
             <Link href={`/course/${slug}`} className="card-footer animated-icon justify-center">
-                مشاهده جزئیات دوره
+               <p>مشاهده جزئیات دوره</p>
+             <IconArrowLeftFill/>
+                
             </Link>
         </div>
 

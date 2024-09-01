@@ -16,3 +16,16 @@ html {
 .gradient {
   @apply bg-gradient-to-r text-transparent bg-clip-text;
 }
+.animated-icon {
+  & > * {
+      @apply transition-all ease-in-out duration-100;
+  }
+  &:hover {
+      @apply text-white;
+       
+          & > * {
+            @apply -translate-x-2;
+          }
+      
+  }
+}

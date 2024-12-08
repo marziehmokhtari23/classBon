@@ -8,7 +8,7 @@ const getTextColor=(input:string) : string=>{
 export const Colors:FC=()=>{
   
     return (
-        <div className="flex flex-wrap justify-start items-center  gap-2">
+        <div lang="en" className="flex flex-wrap justify-start items-center  gap-2">
 {Object.entries(tailwindColor).map(([name,value])=>(
     <ColorBox key={name} name={name} value={value}/> 
 ))}
